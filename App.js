@@ -14,8 +14,11 @@ export default function App() {
   const submitHandler=()=>{
     //console.log(product); 
     // setMyProducts([...Myproducts, product])
+    // recuperer les datas et stockers 
+
     setMyProducts( currentMyProduct => [...currentMyProduct, product])
-    console.log(Myproducts); 
+    setProduct(''); 
+    //console.log(Myproducts); 
   }
   return (
     <View style={styles.container}>
@@ -30,6 +33,14 @@ export default function App() {
         title='Valider'
         onPress={submitHandler}
        />
+      </View>
+      <View style={styles.items}>
+        {/* map : de js pour faire passer et afficher les articles , un key obligatoire d'où fnction flechée comme key */}
+         { 
+          
+          Myproducts.map((product, index)=> <Text style={styles.element} key={index}> { product} </Text>)
+
+          }
       </View>
       
     </View>
@@ -52,8 +63,16 @@ const styles = StyleSheet.create({
     fontSize:18, 
     flexGrow:1, 
     // flexgrowth :prend l'espace dispo
+  }, 
+  items:{
+     marginTop:10, 
 
 
-
+  }, 
+  element:{
+    backgroundColor:"lightpink",
+    padding:20, 
+    fontSize:17, 
+    marginVertical: 7
   }
 });
