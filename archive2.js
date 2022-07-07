@@ -3,29 +3,26 @@ import {
   StyleSheet, Text,
   View , 
   TextInput,Button, 
-  placeholder, ScrollView,
-   FlatList} from 'react-native';
+  placeholder, ScrollView, FlatList} from 'react-native';
 import React, {useState} from 'react';
 
 
 export default function App() {
   // const [product, setProduct] = useState(''); if flatlist 
   const [product, setProduct] = useState('');
-  const [myProducts, setMyProducts] = useState([]);
-
+  const [Myproducts, setMyProducts] = useState([]);
   const inputHandler= (val)=>{
     setProduct(val)
   }
   const submitHandler=()=>{
     //console.log(product); 
-    // setMyProducts([...myProducts, product])
+    // setMyProducts([...Myproducts, product])
     // recuperer les datas et stockers 
     //   setMyProducts( currentMyProduct => [...currentMyProduct, product]);
-    const idString = Date.now().toString(); 
-    
-    setMyProducts( currentMyProduct => [{key:idString, name:product }, ...currentMyProduct]);
+    const idString =Date.now().toString(); 
+    setMyProducts( currentMyProduct => [{ key:idString, name:product}, ...currentMyProduct]);
     setProduct(''); 
-    //console.log(myProducts); 
+    //console.log(Myproducts); 
   }
   return (
     <View style={styles.container}>
@@ -42,10 +39,20 @@ export default function App() {
        />
       </View>
       <FlatList
-        data ={ myProducts }
-        // bien préciser item.name 
-        renderItem={( {  item } ) => <Text style={styles.element}> {item.name} </Text> }
+        data = {Myproducts}
+        renderItem={({ item})=> <Text style={styles.element}> {item} </Text> }
        />
+
+      <ScrollView>
+      <View style={styles.items}>
+        {/* map : de js pour faire passer et afficher les articles , un key obligatoire d'où fnction flechée comme key */}
+         { 
+          
+          Myproducts.map((product, index)=> <Text style={styles.element} key={index}> { product} </Text>)
+
+          }
+      </View>
+      </ScrollView>
     </View>
   );
 }
