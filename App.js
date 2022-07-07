@@ -15,6 +15,7 @@ export default function App() {
     //console.log(product); 
     // setMyProducts([...Myproducts, product])
     setMyProducts( currentMyProduct => [...currentMyProduct, product])
+    console.log(Myproducts); 
   }
   return (
     <View style={styles.container}>
