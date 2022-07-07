@@ -1,7 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View , 
+import { 
+  StyleSheet, Text,
+  View , 
   TextInput,Button, 
-placeholder} from 'react-native';
+  placeholder, ScrollView} from 'react-native';
 import React, {useState} from 'react';
 
 
@@ -34,6 +36,7 @@ export default function App() {
         onPress={submitHandler}
        />
       </View>
+      <ScrollView>
       <View style={styles.items}>
         {/* map : de js pour faire passer et afficher les articles , un key obligatoire d'où fnction flechée comme key */}
          { 
@@ -42,7 +45,7 @@ export default function App() {
 
           }
       </View>
-      
+      </ScrollView>
     </View>
   );
 }
