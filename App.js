@@ -53,10 +53,12 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     padding: 40, 
-    paddingTop: 60
+    paddingTop: 60,  
+
   },
   inputContainer:{
     flexDirection:"row", 
+    marginBottom: 15,
 
   }, 
   textInput:{
