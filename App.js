@@ -6,16 +6,14 @@ import {
    FlatList} from 'react-native';
 import React, {useState} from 'react';
 import Products from './components/products';
-
+import AddProduct from './components/AddProduct';
 export default function App() {
   // const [product, setProduct] = useState(''); if flatlist 
-  const [product, setProduct] = useState('');
+  // const [product, setProduct] = useState('');
   const [myProducts, setMyProducts] = useState([]);
 
-  const inputHandler= (val)=>{
-    setProduct(val)
-  }
-  const submitHandler=()=>{
+//  import de la function input handler vers addproduct 
+  const submitHandler=(product)=>{
     //console.log(product); 
     // setMyProducts([...myProducts, product])
     // recuperer les datas et stockers 
@@ -23,23 +21,14 @@ export default function App() {
     const idString = Date.now().toString(); 
     
     setMyProducts( currentMyProduct => [{key:idString, name:product }, ...currentMyProduct]);
-    setProduct(''); 
+   // setProduct(''); 
+    Products("");
     //console.log(myProducts); 
   }
   return (
     <View style={styles.container}>
-      <View style={styles.inputContainer}>
-      <TextInput 
-        style={styles.textInput}
-        placeholder="Saisir votre texte"
-        onChangeText={ inputHandler }
-        value={product}
-      />
-      <Button 
-        title='Valider'
-        onPress={submitHandler}
-       />
-      </View>
+    {/* on  a enlevé input et btn vers AddProduct  */}
+      <AddProduct submitHandler= {submitHandler} />
       <FlatList
         data ={ myProducts }
         // bien préciser item.name
@@ -55,18 +44,7 @@ const styles = StyleSheet.create({
     paddingTop: 60,  
 
   },
-  inputContainer:{
-    flexDirection:"row", 
-    marginBottom: 15,
-
-  }, 
-  textInput:{
-    borderColor: "grey", 
-    borderWidth:1, padding: 5, 
-    paddingLeft: 9, 
-    fontSize:18, 
-    flexGrow:1, 
-    // flexgrowth :prend l'espace dispo
-  }, 
+  
+   
 
 });

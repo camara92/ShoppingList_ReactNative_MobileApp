@@ -5,7 +5,7 @@ import {
     placeholder, ScrollView,
      FlatList} from 'react-native';
   import React, {useState} from 'react';
-  import Products from './components/products';
+  import Products from '../components/products';
   
   export default function App() {
     // const [product, setProduct] = useState(''); if flatlist 
