@@ -9,7 +9,14 @@ import {
     const inputHandler= (val)=>{
         setProduct(val)
       }
+    const handleClick= ()=>{
+        // vehicule linfo du textinput
+        // et passer vers le props 
+        submitHandler(product); 
+        setProduct(""); 
+        
 
+    }
     return (
         <View style={styles.inputContainer}>
         <TextInput 
@@ -20,7 +27,8 @@ import {
         />
         <Button 
           title='Valider'
-          onPress={()=> submitHandler(product, setProduct )}
+        //   onPress={()=> submitHandler(product, setProduct )}
+        onPress={ handleClick }
          />
         </View>
     )
