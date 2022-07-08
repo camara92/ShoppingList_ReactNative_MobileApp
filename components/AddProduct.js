@@ -7,6 +7,7 @@ import {
     const [product, setProduct] = useState('');
 
     const inputHandler= (val)=>{
+      
         setProduct(val)
       }
     const handleClick= ()=>{

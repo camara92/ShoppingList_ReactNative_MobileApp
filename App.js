@@ -18,9 +18,13 @@ export default function App() {
     // setMyProducts([...myProducts, product])
     // recuperer les datas et stockers 
     //   setMyProducts( currentMyProducts => [...currentMyProducts, product]);
-    const idString = Date.now().toString(); 
-    
-    setMyProducts( currentMyProducts => [{key:idString, name:product }, ...currentMyProducts]);
+    if(product.lenght>1){
+
+      const idString = Date.now().toString(); 
+      setMyProducts( currentMyProducts => [{key:idString, name:product }, ...currentMyProducts]);
+    }else{
+      alert("il faut au minimum deux caractères. ")
+    }
     //setProduct(''); 
     //Products("");
     //console.log(myProducts); 
