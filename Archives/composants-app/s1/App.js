@@ -13,7 +13,7 @@ export default function App() {
   const [myProducts, setMyProducts] = useState([]);
 
 //  import de la function input handler vers addproduct 
-  const submitHandler=(product, setProduct)=>{
+  const submitHandler=(product)=>{
     //console.log(product); 
     // setMyProducts([...myProducts, product])
     // recuperer les datas et stockers 
@@ -21,8 +21,8 @@ export default function App() {
     const idString = Date.now().toString(); 
     
     setMyProducts( currentMyProduct => [{key:idString, name:product }, ...currentMyProduct]);
-    setProduct(''); 
-    //Products("");
+   // setProduct(''); 
+    Products("");
     //console.log(myProducts); 
   }
   return (
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
   container: {
     padding: 40, 
     paddingTop: 60,  
+
   },
   
    

@@ -20,7 +20,7 @@ import {
         />
         <Button 
           title='Valider'
-          onPress={()=> submitHandler(product, setProduct )}
+          onPress={()=> submitHandler(product )}
          />
         </View>
     )
