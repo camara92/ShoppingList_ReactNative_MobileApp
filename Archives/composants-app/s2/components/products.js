@@ -1,26 +1,14 @@
 import { 
-    StyleSheet, Text, View, TouchableWithoutFeedback, TouchableOpacity } from 'react-native';
+    StyleSheet, Text, View } from 'react-native';
   import React from 'react';
     // destructury ({name })
     const Products = ({name})=>{
         // pour afficher, on doit utilise props pour que item.name soit affiché 
-        // touchableWithoutfeedback : rendre cliquable vs touchableopacity odcs 
-        // touchableopacity : peut avoir des styles // style={{backgroundColor:"blue"}} 
-        // onPress={ ()=>console.log("cliquer ")}
-         
-              
 
         return(
-            <TouchableOpacity
-              onPress={ ()=>console.log("cliquer ")}
-              activeOpacity={0.2}
-            >
-
             <View style={styles.items}>
                 <Text style={styles.element}> {name} </Text>
             </View>
-            </TouchableOpacity>
-            
         )
     }
 
