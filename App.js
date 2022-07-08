@@ -18,7 +18,7 @@ export default function App() {
     // setMyProducts([...myProducts, product])
     // recuperer les datas et stockers 
     //   setMyProducts( currentMyProducts => [...currentMyProducts, product]);
-    if(product.lenght>1){
+    if(product.length > 1){
 
       const idString = Date.now().toString(); 
       setMyProducts( currentMyProducts => [{key:idString, name:product }, ...currentMyProducts]);
