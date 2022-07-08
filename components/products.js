@@ -1,5 +1,5 @@
 import { 
-    StyleSheet, Text, View, TouchableWithoutFeedback, TouchableOpacity } from 'react-native';
+    StyleSheet, Text, View, TouchableWithoutFeedback, TouchableOpacity, TouchableHighlight } from 'react-native';
   import React from 'react';
     // destructury ({name })
     const Products = ({name})=>{
@@ -11,15 +11,16 @@ import {
               
 
         return(
-            <TouchableOpacity
+            <TouchableHighlight
               onPress={ ()=>console.log("cliquer ")}
               activeOpacity={0.2}
+              underlayColor="yellow"
             >
 
             <View style={styles.items}>
                 <Text style={styles.element}> {name} </Text>
             </View>
-            </TouchableOpacity>
+            </TouchableHighlight>
             
         )
     }
