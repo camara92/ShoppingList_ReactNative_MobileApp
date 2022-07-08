@@ -2,7 +2,7 @@ import {
     StyleSheet, Text, View, TouchableWithoutFeedback, TouchableOpacity, TouchableHighlight, Pressable } from 'react-native';
   import React from 'react';
     // destructury ({name })
-    const Products = ({name})=>{
+    const Products = ({name, deleteProduct, idString})=>{
         // pour afficher, on doit utilise props pour que item.name soit affiché 
         // touchableWithoutfeedback : rendre cliquable vs touchableopacity odcs 
         // touchableopacity : peut avoir des styles // style={{backgroundColor:"blue"}} 
@@ -13,20 +13,7 @@ import {
 
         return(
             <Pressable
-              onPress={ ()=>console.log("cliquer ")}
-            //  style={({pressed})=>[
-            //  {
-            //   backgroundColor: pressed? "orange" : "red", 
-            //   textAlign: pressed ? "center" : "right", 
-            //   borderWidth: pressed ? 100: 50
-            //  }
-            //  ]}
-            //  delayLongPress={
-            //   5000
-            //  }
-            android_ripple={
-             { color: "purple"}
-            }
+              onPress={ ()=>deleteProduct(idString)}
             >
 
             <View style={styles.items}>

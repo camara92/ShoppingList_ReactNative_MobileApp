@@ -17,13 +17,19 @@ export default function App() {
     //console.log(product); 
     // setMyProducts([...myProducts, product])
     // recuperer les datas et stockers 
-    //   setMyProducts( currentMyProduct => [...currentMyProduct, product]);
+    //   setMyProducts( currentMyProducts => [...currentMyProducts, product]);
     const idString = Date.now().toString(); 
     
-    setMyProducts( currentMyProduct => [{key:idString, name:product }, ...currentMyProduct]);
+    setMyProducts( currentMyProducts => [{key:idString, name:product }, ...currentMyProducts]);
     //setProduct(''); 
     //Products("");
     //console.log(myProducts); 
+  }
+  const deleteProduct =(key)=>{
+    // on se base sur son key 
+    setMyProducts(currentMyProducts =>{
+      return currentMyProducts.filter(product =>product.key !=key)
+    })
   }
   return (
     <View style={styles.container}>
@@ -32,7 +38,13 @@ export default function App() {
       <FlatList
         data ={ myProducts }
         // bien préciser item.name
-        renderItem={( {  item } ) => <Products name={item.name} /> }
+        renderItem={( {  item } ) => (
+
+        <Products name={item.name}
+        idString= {item.key}
+        deleteProduct={deleteProduct}
+         />
+        ) }
        />
     </View>
   );
