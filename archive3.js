@@ -1,3 +1,4 @@
+import { StatusBar } from 'expo-status-bar';
 import { 
   StyleSheet, Text,
   View , 
@@ -5,7 +6,7 @@ import {
   placeholder, ScrollView,
    FlatList} from 'react-native';
 import React, {useState} from 'react';
-import Products from './components/products';
+
 
 export default function App() {
   // const [product, setProduct] = useState(''); if flatlist 
@@ -42,8 +43,8 @@ export default function App() {
       </View>
       <FlatList
         data ={ myProducts }
-        // bien préciser item.name
-        renderItem={( {  item } ) => <Products name={item.name} /> }
+        // bien préciser item.name 
+        renderItem={( {  item } ) => <Text style={styles.element}> {item.name} </Text> }
        />
     </View>
   );
@@ -68,5 +69,15 @@ const styles = StyleSheet.create({
     flexGrow:1, 
     // flexgrowth :prend l'espace dispo
   }, 
+  items:{
+     marginTop:10, 
 
+
+  }, 
+  element:{
+    backgroundColor:"lightpink",
+    padding:20, 
+    fontSize:17, 
+    marginVertical: 7
+  }
 });
