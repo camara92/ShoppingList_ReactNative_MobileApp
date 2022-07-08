@@ -3,7 +3,7 @@ import {
   View , 
   TextInput,Button, 
   placeholder, ScrollView,
-   FlatList} from 'react-native';
+   FlatList, Alert} from 'react-native';
 import React, {useState} from 'react';
 import Products from './components/products';
 import AddProduct from './components/AddProduct';
@@ -19,11 +19,31 @@ export default function App() {
     // recuperer les datas et stockers 
     //   setMyProducts( currentMyProducts => [...currentMyProducts, product]);
     if(product.length > 1){
+      // Condition saisie si caractères ? 
 
       const idString = Date.now().toString(); 
       setMyProducts( currentMyProducts => [{key:idString, name:product }, ...currentMyProducts]);
     }else{
-      alert("il faut au minimum deux caractères. ")
+      Alert.alert('Désole', 'Nombre de caractères doit être supérieur à 1', [
+        {
+          text:  'Compris', 
+          onPress: ()=> console.warn("réfusé"),
+          // style: "destructive" : IOS 
+          
+        }, {
+          text:  'D\'accord', 
+          onPress: ()=> console.warn("réfusé"),
+        }, 
+        {
+          text:  'Yes', 
+          onPress: ()=> console.warn("réfusé"),
+        }
+      ],
+      {
+        cancelable:true, 
+        onDismiss: ()=>console.warn("Dismissed !")
+      }
+      )
     }
     //setProduct(''); 
     //Products("");
