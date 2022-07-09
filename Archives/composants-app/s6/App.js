@@ -4,23 +4,16 @@ import {
   TextInput,Button, 
   placeholder, ScrollView,
    FlatList, Alert} from 'react-native';
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Products from './components/products';
 import AddProduct from './components/AddProduct';
 export default function App() {
   // const [product, setProduct] = useState(''); if flatlist 
   // const [product, setProduct] = useState('');
   const [myProducts, setMyProducts] = useState([]);
-  const [count, setCount] = useState([]); 
-  useEffect(() =>{
-    if(count > 3){
-      setMyProducts([])
-    }
-    
-  }, [count]); 
 
-  const submitHandler=(product)=>{
 //  import de la function input handler vers addproduct 
+  const submitHandler=(product)=>{
     //console.log(product); 
     // setMyProducts([...myProducts, product])
     // recuperer les datas et stockers 
@@ -34,8 +27,16 @@ export default function App() {
       Alert.alert('Désole', 'Nombre de caractères doit être supérieur à 1', [
         {
           text:  'Compris', 
-          // onPress: ()=> console.warn("réfusé"),
-          onPress: () => setCount(count +1)
+          onPress: ()=> console.warn("réfusé"),
+          // style: "destructive" : IOS 
+          
+        }, {
+          text:  'D\'accord', 
+          onPress: ()=> console.warn("réfusé"),
+        }, 
+        {
+          text:  'Yes', 
+          onPress: ()=> console.warn("réfusé"),
         }
       ],
       {
