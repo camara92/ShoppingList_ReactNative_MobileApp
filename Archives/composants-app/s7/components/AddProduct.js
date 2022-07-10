@@ -5,14 +5,14 @@ import {
   const AddProduct =({ submitHandler }) =>{
 
     const [product, setProduct] = useState('');
-    // const [btnDisable, setbtnDisable] = useState(true);
-      // useEffect(()=>{
-      //   if(product.length> 1){
-      //     setbtnDisable(false)
-      //   }else{
-      //     setbtnDisable(true)
-      //   }
-      // }, [product]); 
+    const [btnDisable, setbtnDisable] = useState(true);
+      useEffect(()=>{
+        if(product.length> 1){
+          setbtnDisable(false)
+        }else{
+          setbtnDisable(true)
+        }
+      }, [product]); 
 
     const inputHandler= (val)=>{
       
@@ -33,19 +33,12 @@ import {
           placeholder="Saisir votre texte"
           onChangeText={ inputHandler }
           value={product}
-          // multiline
-          // maxLength={9}
-          // minLenght={1}
-          // désactiver input 
-          // disabled
-          editable={false}
-          secureTextEntry
         />
         <Button 
           title='Valider'
         //   onPress={()=> submitHandler(product, setProduct )}
         onPress={ handleClick }
-        // disabled={btnDisable}
+        disabled={btnDisable}
          />
         </View>
     )
@@ -58,9 +51,8 @@ import {
   const styles = StyleSheet.create({
  
     inputContainer:{
-      // flexDirection:"row", 
+      flexDirection:"row", 
       marginBottom: 15,
-      
   
     }, 
     textInput:{
@@ -69,9 +61,7 @@ import {
       paddingLeft: 9, 
       fontSize:18, 
       flexGrow:1, 
-      marginBottom:9
       // flexgrowth :prend l'espace dispo
-      // marginBottom : espacer 
     }, 
   
   });
