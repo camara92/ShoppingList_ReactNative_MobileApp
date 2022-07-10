@@ -38,7 +38,7 @@ import {
           // minLenght={1}
           // désactiver input 
           // disabled
-          editable={false}
+          // editable={false}
           secureTextEntry
         />
         <Button 
